@@ -102,7 +102,7 @@ namespace FileData
                 //Checks if version is looking for.
                 if (version.Any(x => x == args[0]))
                 {
-                    if (args[1] != null)
+                    if (string.IsNullOrEmpty(args[1]))
                     {
                         returnValue = fileDetails.Version(args[1]);
                     }
@@ -112,7 +112,7 @@ namespace FileData
                 // checks if size is looking for.
                 else if (fileSize.Any(x => x == args[0]))
                 {
-                    if (args[1] != null)
+                    if (string.IsNullOrEmpty(args[1]))
                     {
                         returnValue = fileDetails.Size(args[1]).ToString();
                     }
