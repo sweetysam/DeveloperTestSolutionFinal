@@ -1,4 +1,4 @@
-﻿//James.Warner
+//James.Warner
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FileData;
 using System;
@@ -17,7 +17,7 @@ namespace FileData.Tests
         {
             Assert.Fail();
         }
-        
+
         /*Params:
          * v1 = "-v"
          * v2 = "--v"
@@ -37,13 +37,13 @@ namespace FileData.Tests
             returnValue = Program.method("-v", "");
             splitValues = returnValue.Split(seperator);
 
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
-              switch (i)
+                switch (i)
                 {
                     case 0:
-                        currentValue = int.Parse(splitValues[i]);  
-                        if(currentValue > 0 && currentValue <= 5)
+                        currentValue = int.Parse(splitValues[i]);
+                        if (currentValue > 0 && currentValue <= 5)
                         {
                             Console.WriteLine("Value" + i + " 0-5 True");
                             flag = true;
@@ -320,13 +320,13 @@ namespace FileData.Tests
             currentValue = 0;
             flag = false;
         }
-        
+
         [TestMethod()]
         public void testMethodUsing_s1()
         {
             int returnValue = 0;
             returnValue = int.Parse(Program.method("", "-s"));
-            if(returnValue <= 200000)
+            if (returnValue <= 200000)
             {
                 Assert.IsTrue(true);
             }
@@ -385,7 +385,7 @@ namespace FileData.Tests
         public void testWriteOutputUsing_v1()
         {
             string returnValue = null;
-            string[] inputParam=  new string[] { "-v", "C:/test.txt" };
+            string[] inputParam = new string[] { "-v", "C:/test.txt" };
             char seperator = '.';
             string[] splitValues = null;
             int currentValue = 0;
@@ -457,11 +457,380 @@ namespace FileData.Tests
         }
 
         [TestMethod()]
+        public void testWriteOutPutUsing_v2()
+        {
+            string returnValue = null;
+            char seperator = '.';
+            string[] splitValues = null;
+            int currentValue = 0;
+            bool flag = false;
+
+            string[] inputParam = new string[] { "--v", "" };
+            returnValue = Program.WriteOutPut(inputParam);
+
+            splitValues = returnValue.Split(seperator);
+
+            for (int i = 0; i < 2; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        currentValue = int.Parse(splitValues[i]);
+                        if (currentValue > 0 && currentValue <= 5)
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 False");
+                            flag = false;
+                        }
+                        break;
+                    case 1:
+                        if (currentValue > 0 && currentValue <= 8)
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 False");
+                            flag = false;
+                        }
+                        break;
+                    case 2:
+                        if (currentValue > 0 && currentValue <= 22)
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 False");
+                            flag = false;
+                        }
+                        break;
+                    default:
+                        flag = false;
+                        Assert.Fail();
+                        break;
+                }
+            }
+            if (flag)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+
+            returnValue = null;
+            splitValues = null;
+            currentValue = 0;
+            flag = false;
+        }
+
+        [TestMethod()]
+        public void testWriteOutPutUsing_v3()
+        {
+            
+            string expectedValue = string.Empty;
+
+            string[] inputParam = new string[] { "/ v", "C:/test.txt" };
+            string actualResult = Program.WriteOutPut(inputParam);
+            if (expectedValue == actualResult)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+
+        }
+
+        [TestMethod()]
+        public void testWriteOutPutUsing_v4()
+        {
+            string returnValue = null;
+            char seperator = '.';
+            string[] splitValues = null;
+            int currentValue = 0;
+            bool flag = false;
+            string[] inputParam = new string[] { "/v", "" };
+            returnValue = Program.WriteOutPut(inputParam);
+            splitValues = returnValue.Split(seperator);
+
+            for (int i = 0; i < 2; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        currentValue = int.Parse(splitValues[i]);
+                        if (currentValue > 0 && currentValue <= 5)
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 False");
+                            flag = false;
+                        }
+                        break;
+                    case 1:
+                        if (currentValue > 0 && currentValue <= 8)
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 False");
+                            flag = false;
+                        }
+                        break;
+                    case 2:
+                        if (currentValue > 0 && currentValue <= 22)
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 False");
+                            flag = false;
+                        }
+                        break;
+                    default:
+                        flag = false;
+                        Assert.Fail();
+                        break;
+                }
+            }
+            if (flag)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+
+            returnValue = null;
+            splitValues = null;
+            currentValue = 0;
+            flag = false;
+        }
+
+        [TestMethod()]
+        public void testWriteOutPutUsing_v5()
+        {
+            string returnValue = null;
+            char seperator = '.';
+            string[] splitValues = null;
+            int currentValue = 0;
+            bool flag = false;
+            string[] inputParam = new string[] { "--version", "" };
+            returnValue = Program.WriteOutPut(inputParam);
+            splitValues = returnValue.Split(seperator);
+
+            for (int i = 0; i < 2; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        currentValue = int.Parse(splitValues[i]);
+                        if (currentValue > 0 && currentValue <= 5)
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 False");
+                            flag = false;
+                        }
+                        break;
+                    case 1:
+                        if (currentValue > 0 && currentValue <= 8)
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 False");
+                            flag = false;
+                        }
+                        break;
+                    case 2:
+                        if (currentValue > 0 && currentValue <= 22)
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 False");
+                            flag = false;
+                        }
+                        break;
+                    default:
+                        flag = false;
+                        Assert.Fail();
+                        break;
+                }
+            }
+            if (flag)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+
+            returnValue = null;
+            splitValues = null;
+            currentValue = 0;
+            flag = false;
+        }
+
+        [TestMethod()]
+        public void testWriteOutPutUsing_v6()
+        {
+            string returnValue = null;
+            char seperator = '.';
+            string[] splitValues = null;
+            int currentValue = 0;
+            bool flag = false;
+            string[] inputParam = new string[] { "--version", "C:/test.txt" };
+            returnValue = Program.WriteOutPut(inputParam);
+            splitValues = returnValue.Split(seperator);
+
+            for (int i = 0; i < 2; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        currentValue = int.Parse(splitValues[i]);
+                        if (currentValue > 0 && currentValue <= 5)
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-5 False");
+                            flag = false;
+                        }
+                        break;
+                    case 1:
+                        if (currentValue > 0 && currentValue <= 8)
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-8 False");
+                            flag = false;
+                        }
+                        break;
+                    case 2:
+                        if (currentValue > 0 && currentValue <= 22)
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 True");
+                            flag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Value" + i + " 0-22 False");
+                            flag = false;
+                        }
+                        break;
+                    default:
+                        flag = false;
+                        Assert.Fail();
+                        break;
+                }
+            }
+            if (flag)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+
+            returnValue = null;
+            splitValues = null;
+            currentValue = 0;
+            flag = false;
+        }
+
+        [TestMethod()]
         public void testWriteOutputUsing_s1()
         {
             int returnValue = 0;
-            returnValue = int.Parse(Program.method("-s", "C:/test.txt"));
+            string[] inputParam = new string[] { "-s", "C:/test.txt" };
+            returnValue = int.Parse(Program.WriteOutPut(inputParam));
+
             if (returnValue <= 200000)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod()]
+        public void testWriteOutputUsing_s2()
+        {
+            int returnValue = 0;
+            string[] inputParam = new string[] { "--s", "C:/test.txt" };
+            returnValue = int.Parse(Program.WriteOutPut(inputParam));
+            if (returnValue <= 200000)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod()]
+        public void testWriteOutputUsing_s3()
+        {
+            int returnValue = 0;
+            string[] inputParam = new string[] { "/s", "C:/test.txt" };
+            returnValue = int.Parse(Program.WriteOutPut(inputParam));
+
+            if (returnValue <= 200000)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod()]
+        public void testWriteOutputUsing_s4()
+        {
+            string expectedValue = string.Empty;
+
+            string[] inputParam = new string[] { "/ s", "C:/test.txt" };
+            string actualResult = Program.WriteOutPut(inputParam);
+            if (expectedValue == actualResult)
             {
                 Assert.IsTrue(true);
             }
